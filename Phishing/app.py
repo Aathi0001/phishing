@@ -2,15 +2,11 @@ import streamlit as st
 import pickle
 import numpy as np
 import pandas as pd
-import mysql.connector
 import smtplib
 from email.message import EmailMessage
 import requests
 from utils import unmask
 from sklearn.feature_extraction.text import TfidfVectorizer
-import plotly.graph_objects as go
-
-import plotly.express as px
 st.set_page_config(page_title="Phishing URL Detector", layout="wide")
 # The rest of your Streamlit app code goes here
 #st.title("My Streamlit App")
