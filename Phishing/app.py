@@ -32,47 +32,48 @@ def send_feedback_email(comment):
         server.quit()
     except Exception as e:
         st.error(f"Email error: {e}")
-base_dir = os.getcwd()
+import os
+import pickle
 
-models_dir = os.path.join(base_dir, 'models')
+model_dir = '/mount/src/phishing/Phishing/models'  # Absolute path to models
 
-# Load all models with absolute paths
-with open(os.path.join(models_dir, 'vect.pkl'), 'rb') as f:
+# Load all models using absolute path
+with open(os.path.join(model_dir, 'vect.pkl'), 'rb') as f:
     tfidf_vectorizer = pickle.load(f)
 
-with open(os.path.join(models_dir, 'lr.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'lr.pkl'), 'rb') as f:
     lr = pickle.load(f)
 
-with open(os.path.join(models_dir, 'sv.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'sv.pkl'), 'rb') as f:
     sv = pickle.load(f)
 
-with open(os.path.join(models_dir, 'dt.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'dt.pkl'), 'rb') as f:
     dt = pickle.load(f)
 
-with open(os.path.join(models_dir, 'dtr.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'dtr.pkl'), 'rb') as f:
     dtr = pickle.load(f)
 
-with open(os.path.join(models_dir, 'rf.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'rf.pkl'), 'rb') as f:
     rf = pickle.load(f)
 
-with open(os.path.join(models_dir, 'x.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'x.pkl'), 'rb') as f:
     x = pickle.load(f)
 
-with open(os.path.join(models_dir, 'xm.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'xm.pkl'), 'rb') as f:
     xm = pickle.load(f)
 
-with open(os.path.join(models_dir, 'xr.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'xr.pkl'), 'rb') as f:
     xr = pickle.load(f)
 
-with open(os.path.join(models_dir, 'r.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'r.pkl'), 'rb') as f:
     r = pickle.load(f)
 
-with open(os.path.join(models_dir, 'grbm.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'grbm.pkl'), 'rb') as f:
     grbm = pickle.load(f)
 
-with open(os.path.join(models_dir, 'ensemble_model.pkl'), 'rb') as f:
+with open(os.path.join(model_dir, 'ensemble_model.pkl'), 'rb') as f:
     ensemble_model = pickle.load(f)
-    
+
 def predict_with_details(text_input):
     url = unmask(text_input)
     if url == 'not a valid url' or url is None:
