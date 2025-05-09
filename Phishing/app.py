@@ -32,8 +32,8 @@ def send_feedback_email(comment):
         server.quit()
     except Exception as e:
         st.error(f"Email error: {e}")
+base_dir = os.getcwd()
 
-base_dir = os.path.dirname(__file__)
 models_dir = os.path.join(base_dir, 'models')
 
 # Load all models with absolute paths
