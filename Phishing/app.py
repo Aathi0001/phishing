@@ -33,31 +33,44 @@ def send_feedback_email(comment):
     except Exception as e:
         st.error(f"Email error: {e}")
 
+base_dir = os.path.dirname(__file__)
+models_dir = os.path.join(base_dir, 'models')
 
-# Load the trained model
-with open('./models/vect.pkl', 'rb') as f:
+# Load all models with absolute paths
+with open(os.path.join(models_dir, 'vect.pkl'), 'rb') as f:
     tfidf_vectorizer = pickle.load(f)
-with open('./models/lr.pkl', 'rb') as f:
-    lr = pickle.load(f)    
-with open('./models/sv.pkl', 'rb') as f:
+
+with open(os.path.join(models_dir, 'lr.pkl'), 'rb') as f:
+    lr = pickle.load(f)
+
+with open(os.path.join(models_dir, 'sv.pkl'), 'rb') as f:
     sv = pickle.load(f)
-with open('./models/dt.pkl', 'rb') as f:
-    dt = pickle.load(f)    
-with open('./models/dtr.pkl', 'rb') as f:
+
+with open(os.path.join(models_dir, 'dt.pkl'), 'rb') as f:
+    dt = pickle.load(f)
+
+with open(os.path.join(models_dir, 'dtr.pkl'), 'rb') as f:
     dtr = pickle.load(f)
-with open('./models/rf.pkl', 'rb') as f:
-    rf = pickle.load(f)    
-with open('./models/r.pkl', 'rb') as f:
-    r = pickle.load(f)    
-with open('./models/x.pkl', 'rb') as f:
-    x = pickle.load(f)    
-with open('./models/xr.pkl', 'rb') as f:
+
+with open(os.path.join(models_dir, 'rf.pkl'), 'rb') as f:
+    rf = pickle.load(f)
+
+with open(os.path.join(models_dir, 'x.pkl'), 'rb') as f:
+    x = pickle.load(f)
+
+with open(os.path.join(models_dir, 'xm.pkl'), 'rb') as f:
+    xm = pickle.load(f)
+
+with open(os.path.join(models_dir, 'xr.pkl'), 'rb') as f:
     xr = pickle.load(f)
-with open('./models/xm.pkl', 'rb') as f:
-    xm = pickle.load(f)    
-with open('./models/grbm.pkl', 'rb') as f:
-    grbm = pickle.load(f)   
-with open('./models/ensemble_model.pkl', 'rb') as f:
+
+with open(os.path.join(models_dir, 'r.pkl'), 'rb') as f:
+    r = pickle.load(f)
+
+with open(os.path.join(models_dir, 'grbm.pkl'), 'rb') as f:
+    grbm = pickle.load(f)
+
+with open(os.path.join(models_dir, 'ensemble_model.pkl'), 'rb') as f:
     ensemble_model = pickle.load(f)
     
 def predict_with_details(text_input):
